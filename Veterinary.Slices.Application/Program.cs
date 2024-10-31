@@ -1,3 +1,5 @@
+using System.Reflection;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Veterinary.Slices.Application.Data;
@@ -24,6 +26,8 @@ builder.Services.AddMediatR(options =>
 {
     options.RegisterServicesFromAssembly(typeof(Program).Assembly);
 });
+
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 
 var app = builder.Build();
 
