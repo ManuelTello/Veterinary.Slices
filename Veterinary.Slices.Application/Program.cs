@@ -3,13 +3,22 @@ using Microsoft.EntityFrameworkCore;
 using Veterinary.Slices.Application.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+var identityConnectionString = builder.Configuration.GetConnectionString("IdentityConnection");
+var veterinaryConnectionString = builder.Configuration.GetConnectionString("VeterinaryConnection");
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<IdentityContext>(options =>
+{
+    options.UseSqlServer(identityConnectionString);
+});
+builder.Services.AddDbContext<VeterinaryContext>(options =>
+{ 
+    options.UseSqlServer(veterinaryConnectionString);
+});
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+}).AddEntityFrameworkStores<IdentityContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMediatR(options =>
 {

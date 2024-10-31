@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Veterinary.Slices.Application.Data.Migrations
+namespace Veterinary.Slices.Application.Data.VeterinaryMigrations
 {
     /// <inheritdoc />
-    public partial class PetsOwnersConsultationsAdded : Migration
+    public partial class BaseEntitiesAdded : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

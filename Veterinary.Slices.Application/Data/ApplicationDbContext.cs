@@ -4,16 +4,21 @@ using Veterinary.Slices.Application.Data.Entities;
 
 namespace Veterinary.Slices.Application.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class IdentityContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public IdentityContext(DbContextOptions<IdentityContext> options) : base(options) { }
+    }
+
+    public class VeterinaryContext:DbContext
+    {
+        public VeterinaryContext(DbContextOptions<VeterinaryContext> options) : base(options) { } 
         
-        public DbSet<Owner> Owners { get; set; }
-        
-        public DbSet<Pet> Pets { get; set; }
-        
-        public DbSet<OwnerPet> OwnersPets { get; set; }
-        
-        public DbSet<Consultation> Consultations { get; set; }
+         public DbSet<Owner> Owners { get; set; }
+         
+         public DbSet<Pet> Pets { get; set; }
+         
+         public DbSet<OwnerPet> OwnersPets { get; set; }
+         
+         public DbSet<Consultation> Consultations { get; set; }       
     }
 }
