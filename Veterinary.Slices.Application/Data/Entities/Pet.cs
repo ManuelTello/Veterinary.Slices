@@ -25,7 +25,7 @@ namespace Veterinary.Slices.Application.Data.Entities
         public string Gender { get; init; } = string.Empty;
         
         [Column("weight", Order = 4)]
-        public int Weight { get; init; }
+        public float Weight { get; init; }
         
         [Column("date_of_birth", Order = 5)]
         public DateTime DateOfBirth { get; init; }
