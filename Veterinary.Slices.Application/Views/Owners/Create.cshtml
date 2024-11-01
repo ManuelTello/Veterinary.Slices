@@ -1,0 +1,29 @@
+@model Veterinary.Slices.Application.Models.Owner.CreateOwnerViewmodel
+@{
+    ViewBag.Title = "Create owner";
+}
+
+@using (Html.BeginForm("Create", "Owners", FormMethod.Post))
+{
+    @Html.ValidationMessageFor(f => f.FirstName)
+    @Html.LabelFor(f => f.FirstName, "First name",new {@class="form-label"}) 
+    @Html.TextBoxFor(f => f.FirstName,new {@class="form-control"})
+
+    @Html.ValidationMessageFor(f => f.LastName)
+    @Html.LabelFor(f => f.LastName, "Last name",new {@class="form-label"})
+    @Html.TextBoxFor(f => f.LastName,new {@class="form-control"})
+
+    @Html.ValidationMessageFor(f => f.PhoneNumber)
+    @Html.LabelFor(f => f.PhoneNumber, "Phone number",new {@class="form-label"})
+    @Html.TextBoxFor(f => f.PhoneNumber,new {@class="form-control"})
+
+    @Html.ValidationMessageFor(f => f.AlternativePhoneNumber)
+    @Html.LabelFor(f => f.AlternativePhoneNumber, "Alternative phone number",new {@class="form-label"})
+    @Html.TextBoxFor(f => f.AlternativePhoneNumber,new {@class="form-control"})
+
+    @Html.ValidationMessageFor(f => f.Identification)
+    @Html.LabelFor(f => f.Identification, "Identification",new {@class="form-label"})
+    @Html.TextBoxFor(f => f.Identification,new {@class="form-control"})
+
+    <input type="submit" value="Send"/>
+}
