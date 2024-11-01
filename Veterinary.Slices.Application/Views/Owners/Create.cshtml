@@ -3,27 +3,51 @@
     ViewBag.Title = "Create owner";
 }
 
-@using (Html.BeginForm("Create", "Owners", FormMethod.Post))
+<script src="/js/createOwner.js"></script>
+
+@using (Html.BeginForm("Create", "Owners", FormMethod.Post, new { @class = "form-floating row g-3 m-5" }))
 {
-    @Html.ValidationMessageFor(f => f.FirstName)
-    @Html.LabelFor(f => f.FirstName, "First name",new {@class="form-label"}) 
-    @Html.TextBoxFor(f => f.FirstName,new {@class="form-control"})
+    <div class="col-md-6">
+        <div class="form-floating">
+            @Html.TextBoxFor(f => f.FirstName, new { @class = "form-control", @placeholder = "" })
+            @Html.LabelFor(f => f.FirstName, "First name")
+        </div>
+        @Html.ValidationMessageFor(f => f.FirstName, "", new { @class = "text-danger fw-normal mx-3 pt-1", @id = "error-FirstName" })
+    </div>
 
-    @Html.ValidationMessageFor(f => f.LastName)
-    @Html.LabelFor(f => f.LastName, "Last name",new {@class="form-label"})
-    @Html.TextBoxFor(f => f.LastName,new {@class="form-control"})
+    <div class="col-md-6">
+        <div class="form-floating">
+            @Html.TextBoxFor(f => f.LastName, new { @class = "form-control", @placeholder = "" })
+            @Html.LabelFor(f => f.LastName, "Last name")
+        </div>
+        @Html.ValidationMessageFor(f => f.LastName, "", new { @class = "text-danger fw-normal mx-3 pt-1", @id = "error-LastName" })
+    </div>
 
-    @Html.ValidationMessageFor(f => f.PhoneNumber)
-    @Html.LabelFor(f => f.PhoneNumber, "Phone number",new {@class="form-label"})
-    @Html.TextBoxFor(f => f.PhoneNumber,new {@class="form-control"})
+    <div class="col-md-6">
+        <div class="form-floating">
+            @Html.TextBoxFor(f => f.PhoneNumber, new { @class = "form-control", @placeholder = "", @type = "number" })
+            @Html.LabelFor(f => f.PhoneNumber, "Phone number")
+        </div>
+        @Html.ValidationMessageFor(f => f.PhoneNumber, "", new { @class = "text-danger fw-normal mx-3 pt-1", @id = "error-PhoneNumber" })
+    </div>
 
-    @Html.ValidationMessageFor(f => f.AlternativePhoneNumber)
-    @Html.LabelFor(f => f.AlternativePhoneNumber, "Alternative phone number",new {@class="form-label"})
-    @Html.TextBoxFor(f => f.AlternativePhoneNumber,new {@class="form-control"})
+    <div class="col-md-6">
+        <div class="form-floating">
+            @Html.TextBoxFor(f => f.AlternativePhoneNumber, new { @class = "form-control", @placeholder = "", @type = "number" })
+            @Html.LabelFor(f => f.AlternativePhoneNumber, "Alternative phone number")
+        </div>
+        @Html.ValidationMessageFor(f => f.AlternativePhoneNumber, "", new { @class = "text-danger fw-normal mx-3 pt-1", @id = "error-AlternativePhoneNumber" })
+    </div>
 
-    @Html.ValidationMessageFor(f => f.Identification)
-    @Html.LabelFor(f => f.Identification, "Identification",new {@class="form-label"})
-    @Html.TextBoxFor(f => f.Identification,new {@class="form-control"})
+    <div class="col-md-6">
+        <div class="form-floating">
+            @Html.TextBoxFor(f => f.Identification, new { @class = "form-control", @placeholder = "", @type = "number" })
+            @Html.LabelFor(f => f.Identification, "Identification")
+        </div>
+        @Html.ValidationMessageFor(f => f.Identification, "", new { @class = "text-danger fw-normal mx-3 pt-1", @id = "error-Identification" })
+    </div>
 
-    <input type="submit" value="Send"/>
+    <div class="mb-3">
+        <input type="submit" value="Send" class="btn btn-primary"/>
+    </div>
 }

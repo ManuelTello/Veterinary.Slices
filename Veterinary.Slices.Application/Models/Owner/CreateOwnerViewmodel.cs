@@ -12,8 +12,10 @@ namespace Veterinary.Slices.Application.Models.Owner
         public string LastName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Field is required")]
-        public string PhoneNumber { get; set; } = string.Empty;
-        
+        [MinLength(4,ErrorMessage = "Field must be at least 4 characters long")]
+        public string? PhoneNumber { get; set; }
+ 
+        [MinLength(4, ErrorMessage = "Field must be at least 4 characters long")]
         public string? AlternativePhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Field is required")]

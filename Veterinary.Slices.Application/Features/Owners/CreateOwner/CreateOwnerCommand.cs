@@ -1,8 +1,9 @@
 using MediatR;
+using FluentResults;
 
 namespace Veterinary.Slices.Application.Features.Owners.CreateOwner
 {
-    public class CreateOwnerCommand:IRequest
+    public class CreateOwnerCommand:IRequest<Result>
     {
         public string FirstName { get; set; } = string.Empty;
         

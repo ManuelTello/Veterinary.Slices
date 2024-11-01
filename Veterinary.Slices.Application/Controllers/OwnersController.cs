@@ -32,12 +32,19 @@ namespace Veterinary.Slices.Application.Controllers
                 {
                     FirstName = owner.FirstName,
                     LastName = owner.LastName,
-                    PhoneNumber = owner.PhoneNumber,
-                    Identification = owner.Identification,
-                    AlternativePhoneNumber = owner.AlternativePhoneNumber,
+                    PhoneNumber = owner.PhoneNumber!.ToString()!,
+                    Identification = owner.Identification.ToString(),
+                    AlternativePhoneNumber = owner.AlternativePhoneNumber?.ToString(),
                 };
-                await this._mediatrSender.Send(command);
-                return Ok();
+                var result = await this._mediatrSender.Send(command);
+                if (result.IsFailed)
+                {
+                    return StatusCode(500);
+                }
+                else
+                {
+                   return RedirectToAction("Index", "Home"); 
+                }
             }
             else
             {
