@@ -22,11 +22,11 @@ namespace Veterinary.Slices.Application.Data.Entities
         [Column("phone_number", Order = 3)]
         [MaxLength(20)]
         public string PhoneNumber { get; init; } = string.Empty;
-        
+
         [Column("alternative_phone_number", Order = 4)]
         [MaxLength(20)]
-        public string AlternativePhoneNumber { get; init; } = string.Empty;
-        
+        public string? AlternativePhoneNumber { get; init; }
+
         [Column("identification", Order = 5)]
         [MaxLength(20)]
         public string Identification { get; init; } = string.Empty;
